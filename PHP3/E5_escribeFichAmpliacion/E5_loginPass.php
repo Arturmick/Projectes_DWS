@@ -124,7 +124,7 @@ function crearLogin($nombre, $apellido1,$apellido2)
 /********************AÑADIR CARACTERES HASTA DESEADOS****************/
 
 function completarConAleatorios($cadena, $longitud) {
-    $cadenaAleatoria = 'abcdefghijklmnopqrstuvwxyz'; // Puedes personalizar el conjunto de caracteres
+    $cadenaAleatoria = 'abcdefghijklmnopqrstuvwxyz';
     while (strlen($cadena) < $longitud) {
         $cadena .= $cadenaAleatoria[rand(0, strlen($cadenaAleatoria) - 1)];
     }
