@@ -16,7 +16,7 @@ try {
 	
 	$select_query = "SELECT * FROM articulo";
 	
-	$stmt = $pdo->prepare($select_query);
+	$stmt = $pdo->prepare($select_query, [PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL]);
 	
 	$stmt->execute();
 	$num_filas_selected = $stmt->rowCount();
@@ -27,15 +27,13 @@ try {
 	echo "<table border='1'>";
 	echo "<tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Precio</th></tr>";
 	
-	
-	$data = $stmt->fetchAll();
-	foreach ($data as $row) {
+	while ($row = $stmt->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
 		
 		echo "<tr>";
-		echo "<td>" . $row[0] . "</td>";
-		echo "<td>" . $row[1] . "</td>";
-		echo "<td>" . $row[2] . "</td>";
-		echo "<td>" . $row[3] . "</td>";
+		echo "<td>" . $row['idArticulo'] . "</td>";
+		echo "<td>" . $row['Descripcion'] . "</td>";
+		echo "<td>" . $row['Precio'] . "</td>";
+		echo "<td>" . $row['Stock'] . "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
