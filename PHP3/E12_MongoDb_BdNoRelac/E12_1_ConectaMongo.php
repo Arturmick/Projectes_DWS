@@ -8,7 +8,7 @@ try {
 	
 	$cliente = new MongoDB\Client($cadenaConexion);
 	$bd = $cliente->libroservidor;
-	echo 'Conectado   jkjljk';
+	echo 'Conectado';
 } catch (Exception $e) {
 	echo 'error';
 	print ($e);
