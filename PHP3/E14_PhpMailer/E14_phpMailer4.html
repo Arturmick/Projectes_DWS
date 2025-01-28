@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mailer</title>
+</head>
+<body>
+<h2>Formulario envío de correo</h2>
+<form action="E14_phpMailer3.php" method="post" enctype="multipart/form-data">
+    <label for="email">Correo Electrónico:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="subject">Asunto:</label><br>
+    <input type="text" id="subject" name="subject" required><br><br>
+
+    <label for="message">Mensaje:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+    <label for="file">Archivos adjuntos:</label><br>
+    <input type="file" id="file" name="file[]" multiple><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+</body>
+</html>
