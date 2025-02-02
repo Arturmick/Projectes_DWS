@@ -7,7 +7,7 @@ if (isset($_POST['userid']) && isset($_POST['password'])) {
 	$hostname = 'localhost';
 	$user_bd = 'root';
 	$pass_bd = '';
-	$database = 'bd1_dwes';
+	$database = 'clientesdb_dwes';
 	
 	$link = mysqli_connect($hostname, $user_bd, $pass_bd, $database);
 	
@@ -20,7 +20,7 @@ if (isset($_POST['userid']) && isset($_POST['password'])) {
 		$num_filas = mysqli_affected_rows($link);
 		
 		if ($num_filas > 0) {
-			$_SESSION['valid_user'] = $userid;
+			$_SESSION['user'] = $userid;
 			echo "Bienvenido $userid";
 			mysqli_close($link);
 		}
@@ -34,8 +34,8 @@ if (isset($_POST['userid']) && isset($_POST['password'])) {
 <body>
 <h1>Pagina Inicial</h1>
 <?php
-if (isset($_SESSION['valid_user'])) {
-	echo "Has iniciado sesion como: " . $_SESSION['valid_user'] . "<br>";
+if (isset($_SESSION['user'])) {
+	echo "Has iniciado sesion como: " . $_SESSION['user'] . "<br>";
 	echo "<a href='E11_logout.php'>Cerrar sesion</a>";
 } else {
 	if (isset($userid)) {

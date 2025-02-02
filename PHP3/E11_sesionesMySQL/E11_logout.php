@@ -1,7 +1,7 @@
 <?php
 session_start();
-$old_user = $_SESSION['valid_user'];
-unset($_SESSION['valid_user']);
+$old_user = $_SESSION['user'];
+unset($_SESSION['user']);
 session_destroy();
 ?>
 <html>
